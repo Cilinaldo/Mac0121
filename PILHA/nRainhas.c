@@ -25,16 +25,46 @@ void liberaMatriz (int **tab, int n) {
 
 void imprimeMatriz (int **tab, int n) {
     int i, j;
+    int m = n * 2 + 1;
+    int **mat = alocaMatriz(m, m);
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
 	    if (tab[i][j] == 1) {
-                printf ("R");
+                mat[2 * i + 1][2 * j + 1] = 1;
 	    }
 	    else {
-		printf (" ");
+	        mat[2 * i + 1][2 * j + 1] = 0;
 	    }
 	}
-	printf("\n");
+    }
+
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < m; j++) {
+	    if (i == 0 || i == m - 1) {
+		if (j == m - 1)
+		    printf ("-\n");
+		else
+                    printf ("--");
+	    }
+	    else if (j%2 == 0) {
+                if (j == m - 1)
+		    printf ("|\n");
+		else
+		    printf ("|");
+	    }
+	    else if (i%2 == 0) {
+                if (i == m - 1)
+                    printf ("---\n");
+                else
+                    printf ("---");
+            }
+	    else {
+	        if (mat[i][j] == 1)
+	            printf (" R ");
+                else
+	            printf ("   ");		
+	    } 
+	}
     }
 }
 
