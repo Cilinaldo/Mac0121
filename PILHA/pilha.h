@@ -1,10 +1,18 @@
 #include <stdio.h>
 
-typedef char item;
+/* typedef char item; */
 typedef struct {
-  item * v;
-  int topo;
-  int tam;
+    int linha;
+    int coluna;
+    int movimento;
+} puloCavalo;
+
+typedef puloCavalo item;
+
+typedef struct {
+    item * v;
+    int topo;
+    int tam;
 } pilha;
 
 pilha * criaPilha (int tam);
