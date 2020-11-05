@@ -24,7 +24,8 @@ void imprimeMatriz (int ** v, int m, int n){
     for (j = 0; j < n; j++)
       printf("%3d ", v[i][j]); 
     printf("\n");
-  } 
+  }
+  printf ("\n\n\n"); 
 }
 
 
@@ -39,8 +40,8 @@ void labirinto (int **lab, int m, int n, pos rato, pos queijo) {
   insereFila (caminho, rato);
   lab[rato.l][rato.c] = 1;
   atual = rato;
-  while (diferente (atual, queijo)){
-    if (filaVazia (caminho)){
+  while (diferente (atual, queijo)) {
+    if (filaVazia (caminho)) {
       printf("Não tem caminho do rato até o queijo\n");
       destroiFila (caminho); 
       return;
